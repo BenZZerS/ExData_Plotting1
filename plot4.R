@@ -1,5 +1,6 @@
 #Read Electric Power Consumption data
-elecCons <- read.csv("household_power_consumption.txt", header = TRUE, sep = ";", na.string="?", stringsAsFactors = FALSE, quote = '\"', check.names = FALSE)
+elecCons <- read.csv("household_power_consumption.txt", header = TRUE, sep = ";", na.string="?", 
+                     stringsAsFactors = FALSE, quote = '\"', check.names = FALSE)
 elecCons$Date <- as.Date(elecCons$Date, format="%d/%m/%Y")
 
 #Subseting data (Date between 2007-02-01 and 2007-02-02)
@@ -20,7 +21,8 @@ with(elecCons, {
     lines(DateTime, Sub_metering_1, col = "black")
     lines(DateTime, Sub_metering_2, col = "red")
     lines(DateTime, Sub_metering_3, col = "blue")
-    legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lwd = 1 ,cex = 0.75, bty = "n")
+    legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
+           col = c("black", "red", "blue"), lwd = 1 ,cex = 0.75, bty = "n")
     #Bottomright Plot
     plot(DateTime, Global_reactive_power, xlab = "datetime", ylab = "Global_reactive_power", type = "l")
 })
