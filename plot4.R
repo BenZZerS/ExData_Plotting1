@@ -10,7 +10,7 @@ elecCons <- elecCons[elecCons$Date >= "2007-02-01" & elecCons$Date <= "2007-02-0
 elecCons$DateTime <- as.POSIXlt(paste(elecCons$Date, elecCons$Time))
 
 #Create Plot 4
-par(mfrow = c(2,2), mar = c(4, 4, 2, 1), oma = c(0, 0, 2, 0))
+par(mfrow = c(2,2), oma = c(0, 0, 2, 0))
 with(elecCons, {
     #Topleft Plot
     plot(DateTime, Global_active_power, xlab = "", ylab = "Global Active Power", type = "l")
@@ -22,7 +22,7 @@ with(elecCons, {
     lines(DateTime, Sub_metering_2, col = "red")
     lines(DateTime, Sub_metering_3, col = "blue")
     legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
-           col = c("black", "red", "blue"), lwd = 1 ,cex = 0.75, bty = "n")
+           col = c("black", "red", "blue"), lwd = 1 ,cex = 0.7, bty = "n")
     #Bottomright Plot
     plot(DateTime, Global_reactive_power, xlab = "datetime", ylab = "Global_reactive_power", type = "l")
 })
